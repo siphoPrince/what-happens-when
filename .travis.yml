@@ -1,11 +1,15 @@
+# Specify the programming language for the build
 language: python
 
+# Use the container-based infrastructure for faster build times
 sudo: false
 
-install: 
-    - pip install doc8
-    - npm install -g write-good
+# Install required dependencies
+install:
+  - pip install doc8         # Install doc8 for documentation style checking
+  - npm install -g write-good # Install write-good for English writing quality checks
 
+# Run the specified checks on the README.rst file
 script:
-    - doc8 README.rst
-    - write-good README.rst --so --thereIs --cliches
+  - doc8 README.rst                         # Check documentation style
+  - write-good README.rst --so --thereIs --cliches # Check English writing quality
